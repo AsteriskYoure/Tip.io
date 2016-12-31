@@ -29,6 +29,13 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var tipControl: UISegmentedControl!
     @IBOutlet weak var numberPicker: UIPickerView!
     
+   //split pay shit
+    @IBOutlet weak var personLabel: UILabel!
+    @IBOutlet weak var costPerPersonLabel: UILabel!
+    
+    var peopleCount:Double = 1
+    //end split pay
+    
     
     
     @IBOutlet weak var resultsCard: UIView!
@@ -122,7 +129,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
         let total = bill + tip
         
-        tipLabel.text =  String(format: "$%.2f", tip)
+        tipLabel.text =  "With a tip of " + String(format: "$%.2f", tip)
         totalLabel.text = String(format: "$%.2f", total)
         
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: [], animations: {
@@ -130,19 +137,25 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             
         }, completion: nil)
         
+        //this should be placed elsewhere
         let generator = UINotificationFeedbackGenerator()
         if(cardIsUp<2){
             generator.notificationOccurred(.success)
             cardIsUp += 1
         }
         
-       
+        
+        let costPerPerson = total / peopleCount
+    
+        costPerPersonLabel.text = String(format: "$%.2f", costPerPerson) + " Per Person"
     }
     
     func setDefaultPercentage(tempIndex:Int){
         
     }
     
+    
+    //picker view functions
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -154,6 +167,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         print("loading number picker data")
         return numberPickerData[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if(row>0){personLabel.text = "people"}
+        peopleCount = Double(row) + 1
+        calculateTip(self)
     }
 
 }
