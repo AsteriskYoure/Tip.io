@@ -23,7 +23,9 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [*] Ability to change accent colors 
+- [] Ability to change accent colors 
+- [] Support for the iPhone 7's Taptic Engine
+- [] Ability to split bill amongst a certain number of people 
 
 ## Video Walkthrough 
 
