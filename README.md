@@ -27,10 +27,10 @@ The following **additional** features are implemented:
 
 ## Video Walkthrough 
 
-Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/k9EfDqm.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://thumbs.gfycat.com/UnlinedPersonalFruitfly-size_restricted.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
+[60fps version](https://gfycat.com/UnlinedPersonalFruitfly)
 
 ## Notes
 
