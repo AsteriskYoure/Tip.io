@@ -47,21 +47,15 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WYB-VI-jTc">
                                 <rect key="frame" x="0.0" y="209" width="414" height="632"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total For..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4DO-2n-FRa">
-                                        <rect key="frame" x="21" y="93" width="80" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOZ-QV-bRP">
-                                        <rect key="frame" x="340" y="92" width="45" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grand Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4DO-2n-FRa">
+                                        <rect key="frame" x="129" y="84" width="157.66666666666669" height="32.333333333333314"/>
+                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="27"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tip Amount" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mpQ-ae-AX3">
-                                        <rect key="frame" x="128" y="14" width="159" height="33"/>
-                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="27"/>
+                                        <rect key="frame" x="161.33333333333337" y="26.666666666666657" width="92.666666666666657" height="20.333333333333343"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -71,16 +65,26 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Qa-Vi-GuN">
+                                        <rect key="frame" x="51" y="166" width="312" height="110"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    </pickerView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOZ-QV-bRP">
+                                        <rect key="frame" x="185" y="124" width="45" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="top" secondItem="mpQ-ae-AX3" secondAttribute="bottom" constant="-46.5" id="ES7-NE-6Ta"/>
-                                    <constraint firstItem="yOZ-QV-bRP" firstAttribute="top" secondItem="WYB-VI-jTc" secondAttribute="top" constant="92" id="IRu-Fu-Orf"/>
+                                    <constraint firstItem="yOZ-QV-bRP" firstAttribute="top" secondItem="WYB-VI-jTc" secondAttribute="top" constant="124" id="IRu-Fu-Orf"/>
                                     <constraint firstItem="VRJ-WD-Tt9" firstAttribute="centerX" secondItem="WYB-VI-jTc" secondAttribute="centerX" id="YRf-Ry-LDS"/>
-                                    <constraint firstItem="4DO-2n-FRa" firstAttribute="leading" secondItem="WYB-VI-jTc" secondAttribute="leading" constant="21" id="a5p-fZ-Wif"/>
-                                    <constraint firstAttribute="trailing" secondItem="yOZ-QV-bRP" secondAttribute="trailing" constant="29" id="dyl-Ja-Oc4"/>
+                                    <constraint firstItem="4DO-2n-FRa" firstAttribute="leading" secondItem="WYB-VI-jTc" secondAttribute="leading" constant="129" id="a5p-fZ-Wif"/>
+                                    <constraint firstAttribute="trailing" secondItem="yOZ-QV-bRP" secondAttribute="trailing" constant="184" id="dyl-Ja-Oc4"/>
                                     <constraint firstItem="VRJ-WD-Tt9" firstAttribute="top" secondItem="mpQ-ae-AX3" secondAttribute="bottom" constant="8" id="mXZ-TH-ybN"/>
-                                    <constraint firstItem="4DO-2n-FRa" firstAttribute="top" secondItem="WYB-VI-jTc" secondAttribute="top" constant="93" id="w6g-7I-1l4"/>
+                                    <constraint firstItem="4DO-2n-FRa" firstAttribute="top" secondItem="WYB-VI-jTc" secondAttribute="top" constant="84" id="w6g-7I-1l4"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NRf-E8-Hei">
@@ -89,11 +93,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AVg-Gf-dN3">
-                                <rect key="frame" x="206" y="352" width="2" height="308"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -129,6 +128,7 @@
                     <connections>
                         <outlet property="backgroundView" destination="8bC-Xf-vdC" id="hwA-FE-pLp"/>
                         <outlet property="billField" destination="Tqh-Vx-bvF" id="1fV-Rd-TpT"/>
+                        <outlet property="numberPicker" destination="1Qa-Vi-GuN" id="PYZ-jX-dnN"/>
                         <outlet property="resultsCard" destination="WYB-VI-jTc" id="FNE-ke-6AH"/>
                         <outlet property="tipControl" destination="UrZ-y0-wc1" id="q0d-11-TJj"/>
                         <outlet property="tipLabel" destination="VRJ-WD-Tt9" id="3nl-HK-pg2"/>

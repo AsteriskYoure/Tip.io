@@ -21,12 +21,15 @@ extension UITextField {
     }
 }
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
     
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var billField: UITextField!
     @IBOutlet weak var tipControl: UISegmentedControl!
+    @IBOutlet weak var numberPicker: UIPickerView!
+    
+    
     
     @IBOutlet weak var resultsCard: UIView!
     @IBOutlet weak var backgroundView: UIView!
@@ -44,16 +47,34 @@ class ViewController: UIViewController {
     
     //I probably could've used a dictionary up there, but eh.
     
+    
     let defaults = UserDefaults.standard
     
+    //picker view shenanigans
     
+    var numberPickerData = [String]()
+    
+    //for determining when to vibrate
+    
+    var cardIsUp = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.title = "Tip Calculator"
+        
+        
+        for index in 1...30 {
+            numberPickerData.append(String(index))
+        }
+        
+        print(numberPickerData)
+        
+        self.numberPicker.dataSource = self;
+        self.numberPicker.delegate = self;
+    
         tipControl.selectedSegmentIndex = defaults.integer(forKey:"defaultTipValue")
-        resultsCard.layer.cornerRadius = 20
+        resultsCard.layer.cornerRadius = 10
         billField.useUnderline()
 
         backgroundView.backgroundColor = customColors[defaults.integer(forKey: "customColorsIndex")]
@@ -86,14 +107,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onTap(_ sender: Any) {
-        view.endEditing(true)
+        //view.endEditing(true)
         print(defaults.integer(forKey: "defaultTipValue" ))
         tipControl.selectedSegmentIndex = defaults.integer(forKey:"defaultTipValue")
         
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: [], animations: {
-            self.resultsCard.transform = CGAffineTransform(translationX: 0, y: 0)
-            
-        }, completion: nil)
+
     }
 
     @IBAction func calculateTip(_ sender: AnyObject) {
@@ -107,11 +125,36 @@ class ViewController: UIViewController {
         tipLabel.text =  String(format: "$%.2f", tip)
         totalLabel.text = String(format: "$%.2f", total)
         
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: [], animations: {
+            self.resultsCard.transform = CGAffineTransform(translationX: 0, y: 0)
+            
+        }, completion: nil)
+        
+        let generator = UINotificationFeedbackGenerator()
+        if(cardIsUp<2){
+            generator.notificationOccurred(.success)
+            cardIsUp += 1
+        }
+        
        
     }
     
     func setDefaultPercentage(tempIndex:Int){
         
     }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return numberPickerData.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        print("loading number picker data")
+        return numberPickerData[row]
+    }
+
 }
 
