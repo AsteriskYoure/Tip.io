@@ -98,19 +98,43 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         calculateTip(defaults)
         backgroundView.backgroundColor = customColors[defaults.integer(forKey: "customColorsIndex")]
         resultsCard.transform = CGAffineTransform(translationX: 0, y: 400)
-    
+        
+        
+        
+        
+        let tempDate = defaults.object(forKey: "lastTimeUsed") as! NSDate
+        let intervalDifference = tempDate.timeIntervalSinceNow
+        
+        if(intervalDifference < -600){
+            billField.text = ""
+            defaults.set("", forKey: "billFieldDefaults")
+            defaults.synchronize()
+        }
+        
+        
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        billField.text = defaults.string(forKey:"billFieldDefaults")
+        if(billField.text != ""){calculateTip(self)}
 
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        if(billField.text != ""){
+        defaults.set(billField.text, forKey: "billFieldDefaults")
+        defaults.set(NSDate.init(), forKey: "lastTimeUsed")
+        defaults.synchronize()
+        }
+        print("View unloaded")
     }
     
     @IBAction func onTap(_ sender: Any) {
@@ -132,7 +156,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         tipLabel.text =  "With a tip of " + String(format: "$%.2f", tip)
         totalLabel.text = String(format: "$%.2f", total)
         
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: [], animations: {
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.4, options: [], animations: {
             self.resultsCard.transform = CGAffineTransform(translationX: 0, y: 0)
             
         }, completion: nil)
@@ -146,9 +170,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         
         let costPerPerson = total / peopleCount
-    
         costPerPersonLabel.text = String(format: "$%.2f", costPerPerson) + " Per Person"
+        
+        defaults.set(billField.text, forKey: "billFieldDefaults")
+        defaults.synchronize()
+        
+        
     }
+    
     
     func setDefaultPercentage(tempIndex:Int){
         
