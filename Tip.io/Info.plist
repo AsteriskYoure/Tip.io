@@ -28,6 +28,33 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string></string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>eighteen</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>18%</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>20%</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>twenty</string>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string></string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>twentyfive</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>25%</string>
+		</dict>
+	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

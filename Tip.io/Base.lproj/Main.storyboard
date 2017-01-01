@@ -149,6 +149,7 @@
                         <outlet property="backgroundView" destination="8bC-Xf-vdC" id="hwA-FE-pLp"/>
                         <outlet property="billField" destination="Tqh-Vx-bvF" id="1fV-Rd-TpT"/>
                         <outlet property="costPerPersonLabel" destination="amq-gH-XUY" id="B0C-Bh-NZf"/>
+                        <outlet property="currencySymbolLabel" destination="NRf-E8-Hei" id="I0v-7P-QK1"/>
                         <outlet property="numberPicker" destination="1Qa-Vi-GuN" id="PYZ-jX-dnN"/>
                         <outlet property="personLabel" destination="ZNE-QY-5fY" id="qYv-cB-VlK"/>
                         <outlet property="resultsCard" destination="WYB-VI-jTc" id="FNE-ke-6AH"/>

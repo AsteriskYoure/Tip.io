@@ -21,7 +21,7 @@ extension UITextField {
     }
 }
 
-class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
+class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
@@ -29,15 +29,13 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var tipControl: UISegmentedControl!
     @IBOutlet weak var numberPicker: UIPickerView!
     
-   //split pay shit
+    @IBOutlet weak var currencySymbolLabel: UILabel!
+   //split pay stuff
     @IBOutlet weak var personLabel: UILabel!
     @IBOutlet weak var costPerPersonLabel: UILabel!
     
     var peopleCount:Double = 1
-    //end split pay
-    
-    
-    
+    let currencyFormatter = NumberFormatter()
     @IBOutlet weak var resultsCard: UIView!
     @IBOutlet weak var backgroundView: UIView!
     
@@ -100,7 +98,15 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         resultsCard.transform = CGAffineTransform(translationX: 0, y: 400)
         
         
+        print(NSLocale.Key.self)
         
+        let locale = NSLocale.current
+        
+        currencySymbolLabel.text = locale.currencySymbol
+        
+        
+        
+        if(defaults.object(forKey: "lastTimeUsed") != nil ){
         
         let tempDate = defaults.object(forKey: "lastTimeUsed") as! NSDate
         let intervalDifference = tempDate.timeIntervalSinceNow
@@ -109,9 +115,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             billField.text = ""
             defaults.set("", forKey: "billFieldDefaults")
             defaults.synchronize()
+            }
         }
         
-        
+        currencyFormatter.usesGroupingSeparator = true
+        currencyFormatter.numberStyle = NumberFormatter.Style.currency
+        currencyFormatter.locale = NSLocale.current
         
     }
     
@@ -149,12 +158,28 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         let tipPercentages = [0.18,0.2,0.25]
         
+        
+        //locale code, but I don't think I'll get it working in time. Least of my priorities.
+        let tempBillDouble = Double(billField.text!) ?? 0
+        let tempBillNSNumber = NSNumber(value:tempBillDouble)
+        let convertedInput = currencyFormatter.string(from: tempBillNSNumber)
+        
+        print(convertedInput!)
+        
+        
         let bill = Double(billField.text!) ?? 0
         let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
         let total = bill + tip
         
+        
+        /*
         tipLabel.text =  "With a tip of " + String(format: "$%.2f", tip)
         totalLabel.text = String(format: "$%.2f", total)
+        
+ */
+        
+        tipLabel.text = "With a tip of " + currencyFormatter.string(from:NSNumber(value:tip))!
+        totalLabel.text = currencyFormatter.string(from:NSNumber(value:total))!
         
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.4, options: [], animations: {
             self.resultsCard.transform = CGAffineTransform(translationX: 0, y: 0)
@@ -170,7 +195,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         
         let costPerPerson = total / peopleCount
-        costPerPersonLabel.text = String(format: "$%.2f", costPerPerson) + " Per Person"
+        costPerPersonLabel.text = currencyFormatter.string(from:NSNumber(value:costPerPerson))! + " Per Person"
         
         defaults.set(billField.text, forKey: "billFieldDefaults")
         defaults.synchronize()
@@ -202,6 +227,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         if(row>0){personLabel.text = "people"}
         peopleCount = Double(row) + 1
         calculateTip(self)
+    }
+    
+    func changePercentSelection(index:Int) {
+        tipControl.selectedSegmentIndex = index
+        print(index)
     }
 
 }
