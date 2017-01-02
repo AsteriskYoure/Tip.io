@@ -26,6 +26,7 @@ The following **additional** features are implemented:
 -  Ability to change accent colors 
 -  Support for the iPhone 7's Taptic Engine
 -  Ability to split bill amongst a certain number of people 
+-  Custom App Icon
 
 Things that are a work in progress
 
@@ -33,12 +34,16 @@ Things that are a work in progress
 - Improved UI Scalability between device profiles
 - New Video Walkthrough 
 
-## Video Walkthrough 
+## Video Walkthroughs
 
 
-<img src='https://thumbs.gfycat.com/UnlinedPersonalFruitfly-size_restricted.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<a href='https://gfycat.com/ShoddyFlamboyantDutchsmoushond'><img src='http://giant.gfycat.com/ShoddyFlamboyantDutchsmoushond.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' /></a>
+<a href='https://gfycat.com/HighlevelFatBlackbear'><img src='http://giant.gfycat.com/HighlevelFatBlackbear.gif' title='Set Locale Currency' width='' alt'Locale Currency Gif' /></a>
 
-[60fps version](https://gfycat.com/UnlinedPersonalFruitfly)
+
+
+
+[60fps version](https://gfycat.com/ShoddyFlamboyantDutchsmoushond)
 
 ## Notes
 
