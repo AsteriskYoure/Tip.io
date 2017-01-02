@@ -37,8 +37,8 @@ Things that are a work in progress
 ## Video Walkthroughs
 
 
-<a href='https://gfycat.com/ShoddyFlamboyantDutchsmoushond'><img src='http://thumbs.gfycat.com/ShoddyFlamboyantDutchsmoushond.gif ' title='Video Walkthrough' width='' alt='Video Walkthrough' /></a>
-<a href='https://gfycat.com/HighlevelFatBlackbear '><img src='http://thumbs.gfycat.com/HighlevelFatBlackbear.gif' title='Set Locale Currency' width='' alt'Locale Currency Gif' /></a>
+<a href='https://gfycat.com/ShoddyFlamboyantDutchsmoushond'><img src='http://zippy.gfycat.com/ShoddyFlamboyantDutchsmoushond.gif ' title='Video Walkthrough' width='' alt='Video Walkthrough' /></a>
+<a href='https://gfycat.com/HighlevelFatBlackbear '><img src='http://zippy.gfycat.com/HighlevelFatBlackbear.gif' title='Set Locale Currency' width='' alt'Locale Currency Gif' /></a>
 
 
 
