@@ -60,10 +60,13 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         self.colorPicker.dataSource = self;
         self.colorPicker.delegate = self;
         
+        colorPicker.selectRow(defaults.integer(forKey: "customColorsIndex"), inComponent: 0, animated: false)
         
 
     }
 
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

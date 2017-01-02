@@ -34,7 +34,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var personLabel: UILabel!
     @IBOutlet weak var costPerPersonLabel: UILabel!
     
-    var peopleCount:Double = 1
+    var peopleCount:Double = 2
     let currencyFormatter = NumberFormatter()
     @IBOutlet weak var resultsCard: UIView!
     @IBOutlet weak var backgroundView: UIView!
@@ -69,7 +69,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         self.title = "Tip Calculator"
         
         
-        for index in 1...30 {
+        for index in 2...30 {
             numberPickerData.append(String(index))
         }
         
@@ -110,7 +110,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         let tempDate = defaults.object(forKey: "lastTimeUsed") as! NSDate
         let intervalDifference = tempDate.timeIntervalSinceNow
-        
+        print("the time interval difference is " + String(intervalDifference))
         if(intervalDifference < -600){
             billField.text = ""
             defaults.set("", forKey: "billFieldDefaults")
@@ -126,7 +126,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        billField.text = defaults.string(forKey:"billFieldDefaults")
+        print("The default bill field is " + defaults.string(forKey:"billFieldDefaults")!)
+        billField.text = defaults.string(forKey:"billFieldDefaults")!
         if(billField.text != ""){calculateTip(self)}
 
     }
@@ -198,9 +199,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         costPerPersonLabel.text = currencyFormatter.string(from:NSNumber(value:costPerPerson))! + " Per Person"
         
         defaults.set(billField.text, forKey: "billFieldDefaults")
+        defaults.set(NSDate.init(), forKey: "lastTimeUsed")
         defaults.synchronize()
-        
-        
+        print("The default bill field is " + defaults.string(forKey:"billFieldDefaults")!)
+  
     }
     
     
@@ -224,8 +226,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if(row>0){personLabel.text = "people"}
-        peopleCount = Double(row) + 1
+        peopleCount = Double(row) + 2
         calculateTip(self)
     }
     

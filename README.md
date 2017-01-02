@@ -24,21 +24,21 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 -  Ability to change accent colors 
--  Support for the iPhone 7's Taptic Engine
--  Ability to split bill amongst a certain number of people 
+-  Support for the iPhone 7's Enhanced Taptic Engine
+-  Ability to split bill with a given number of people 
 -  Custom App Icon
 
 Things that are a work in progress
 
 - 3D touch homescreen shortcuts
 - Improved UI Scalability between device profiles
-- New Video Walkthrough 
+
 
 ## Video Walkthroughs
 
 
-<a href='https://gfycat.com/ShoddyFlamboyantDutchsmoushond'><img src='http://imgur.com/p02705T.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' height='300px'/> </a>
-<a href='https://gfycat.com/HighlevelFatBlackbear'><img src='http://giant.gfycat.com/HighlevelFatBlackbear.gif' title='Set Locale Currency' width='' alt'Locale Currency Gif' height='300px' /></a>
+<a href='https://gfycat.com/ShoddyFlamboyantDutchsmoushond'><img src='http://imgur.com/p02705T.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' height='400px'/> </a>
+<a href='https://gfycat.com/HighlevelFatBlackbear'><img src='http://giant.gfycat.com/HighlevelFatBlackbear.gif' title='Set Locale Currency' width='' alt'Locale Currency Gif' height='400px' /></a>
 
 
 *Click on any of the gifs to view a high-quality gfycat*
