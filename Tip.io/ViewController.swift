@@ -65,7 +65,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
         self.title = "Tip Calculator"
         
         
@@ -87,8 +87,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         billField.attributedPlaceholder = NSAttributedString(string: "Bill Amount", attributes: [NSForegroundColorAttributeName: UIColor.white])
         
-
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -107,7 +105,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         
         if(defaults.object(forKey: "lastTimeUsed") != nil ){
-        
+        //Optionals are a little weird with NSDate
         let tempDate = defaults.object(forKey: "lastTimeUsed") as! NSDate
         let intervalDifference = tempDate.timeIntervalSinceNow
         print("the time interval difference is " + String(intervalDifference))
@@ -132,11 +130,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     override func viewWillDisappear(_ animated: Bool) {
         
         if(billField.text != ""){
@@ -148,7 +141,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     @IBAction func onTap(_ sender: Any) {
-        //view.endEditing(true)
+        view.endEditing(true)
         print(defaults.integer(forKey: "defaultTipValue" ))
         tipControl.selectedSegmentIndex = defaults.integer(forKey:"defaultTipValue")
         
@@ -158,27 +151,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBAction func calculateTip(_ sender: AnyObject) {
         
         let tipPercentages = [0.18,0.2,0.25]
-        
-        
-        //locale code, but I don't think I'll get it working in time. Least of my priorities.
-        let tempBillDouble = Double(billField.text!) ?? 0
-        let tempBillNSNumber = NSNumber(value:tempBillDouble)
-        let convertedInput = currencyFormatter.string(from: tempBillNSNumber)
-        
-        print(convertedInput!)
-        
-        
         let bill = Double(billField.text!) ?? 0
         let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
         let total = bill + tip
-        
-        
-        /*
-        tipLabel.text =  "With a tip of " + String(format: "$%.2f", tip)
-        totalLabel.text = String(format: "$%.2f", total)
-        
- */
-        
+
         tipLabel.text = "With a tip of " + currencyFormatter.string(from:NSNumber(value:tip))!
         totalLabel.text = currencyFormatter.string(from:NSNumber(value:total))!
         
@@ -203,11 +179,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         defaults.synchronize()
         print("The default bill field is " + defaults.string(forKey:"billFieldDefaults")!)
   
-    }
-    
-    
-    func setDefaultPercentage(tempIndex:Int){
-        
     }
     
     

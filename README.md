@@ -28,11 +28,6 @@ The following **additional** features are implemented:
 -  Ability to split bill with a given number of people 
 -  Custom App Icon
 
-Things that are a work in progress
-
-- 3D touch homescreen shortcuts
-- Improved UI Scalability between device profiles
-
 
 ## Video Walkthroughs
 
